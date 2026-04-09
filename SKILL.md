@@ -247,6 +247,30 @@ metadata:
   - deliver_attachments 回传
 ```
 
+#### 飞书云文档生成指令
+
+```yaml
+# 使用 lark-mcp MCP 创建飞书云文档
+工具: mcp_call_tool(server="feishu-integration", tool="docx_builtin_import")
+参数:
+  data:
+    file_name: "{目的地}旅行攻略_{日期}"
+    markdown: |
+      # {目的地}旅行攻略
+      ## {date_range} · {主题标签}
+      （完整 Markdown 格式的旅行攻略报告）
+  useUAT: false
+
+# 发送文档链接到群/对话
+工具: mcp_call_tool(server="feishu-integration", tool="im_v1_message_create")
+参数:
+  params: { receive_id_type: "chat_id" }
+  data:
+    receive_id: "{chat_id}"
+    msg_type: "text"
+    content: '{"text": "📝 旅行攻略已生成\n链接: https://open.feishu.cn/docx/{document_id}"}'
+```
+
 报告结构:
   1. Hero区: 旅行主题（城市+天数+风格标签）
   2. 每日打卡路线时间线（含地图标注）

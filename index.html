@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>🏖️ 休闲出行规划 AI Skill</title>
+    <meta name="description" content="面向旅游爱好者的AI休闲出行规划，景点打卡路线优化+美食推荐+拍照点+攻略生成">
+    <style>
+        *{margin:0;padding:0;box-sizing:border-box}
+        :root{--grad1:#667eea;--grad2:#764ba2;--pink:#f093fb;--white:#fff;--dark:#0f172a;--gray:#f8fafc;--muted:#94a3b8;--card:#fff;--border:#e2e8f0;--green:#22c55e}
+        body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','PingFang SC','Microsoft YaHei',sans-serif;background:var(--gray);color:#334155;line-height:1.6}
+        .hero{background:linear-gradient(135deg,var(--grad1) 0%,var(--grad2) 50%,#4c1d95 100%);padding:60px 20px 50px;text-align:center;position:relative;overflow:hidden}
+        .hero::before{content:'';position:absolute;top:-30%;left:-20%;width:500px;height:500px;background:radial-gradient(circle,rgba(240,147,251,.2),transparent 70%);border-radius:50%}
+        .hero h1{font-size:clamp(1.8rem,5vw,2.6rem);font-weight:800;color:var(--white);margin-bottom:12px;position:relative}
+        .hero h1 em{color:var(--pink);font-style:normal}
+        .hero p{color:rgba(255,255,255,.8);max-width:560px;margin:0 auto 24px;font-size:clamp(.9rem,2.5vw,1.05rem);position:relative}
+        .badges{display:flex;justify-content:center;gap:10px;flex-wrap:wrap;position:relative}
+        .badge{padding:4px 12px;border-radius:20px;font-size:.8rem;font-weight:600;border:1px solid}
+        .badge-mit{background:rgba(34,197,94,.15);border-color:rgba(34,197,94,.3);color:var(--green)}
+        .badge-v{background:rgba(240,147,251,.15);border-color:rgba(240,147,251,.3);color:var(--pink)}
+        .container{max-width:1000px;margin:0 auto;padding:0 16px 60px}
+        .actions{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:16px;margin:-28px auto 40px;position:relative;z-index:1}
+        .action-card{background:var(--card);border:1px solid var(--border);border-radius:14px;padding:22px;text-decoration:none;color:#334155;display:block;transition:.3s;box-shadow:0 4px 15px rgba(0,0,0,.06)}
+        .action-card:hover{transform:translateY(-3px);box-shadow:0 8px 25px rgba(102,126,234,.15);border-color:var(--grad1)}
+        .action-card .ic{font-size:28px;margin-bottom:10px}
+        .action-card h3{font-size:1rem;margin-bottom:6px;color:var(--grad2)}
+        .action-card p{font-size:.82rem;color:var(--muted)}
+        .action-card .arr{display:inline-block;margin-top:10px;color:var(--pink);font-size:.82rem}
+        .section-title{font-size:1.3rem;font-weight:700;text-align:center;margin:32px 0 20px;color:var(--dark)}
+        .features{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:14px;margin-bottom:40px}
+        .feat{background:var(--card);border:1px solid var(--border);border-radius:12px;padding:18px;text-align:center;transition:.2s}
+        .feat:hover{border-color:var(--grad1)}
+        .feat .ic{font-size:26px;margin-bottom:8px;display:block}
+        .feat h4{font-size:.9rem;margin-bottom:4px;color:var(--dark)}
+        .feat p{font-size:.78rem;color:var(--muted)}
+        .compare{background:var(--card);border:1px solid var(--border);border-radius:14px;padding:24px;margin-bottom:40px;overflow-x:auto}
+        .compare h3{text-align:center;margin-bottom:16px;font-size:1.1rem}
+        .compare table{width:100%;border-collapse:collapse;font-size:.85rem}
+        .compare th{background:linear-gradient(135deg,var(--grad1),var(--grad2));color:var(--white);padding:10px 14px;text-align:left}
+        .compare td{padding:10px 14px;border-bottom:1px solid var(--border)}
+        .compare tr:nth-child(even){background:#f8fafc}
+        .tag-pk{color:#ec4899;font-weight:600}
+        .footer{text-align:center;padding:30px 20px;border-top:1px solid var(--border);color:var(--muted);font-size:.82rem}
+        .footer a{color:var(--grad1);text-decoration:none}
+        @media(max-width:640px){.hero{padding:40px 16px 36px}.actions{grid-template-columns:1fr}.features{grid-template-columns:repeat(2,1fr)}}
+    </style>
+</head>
+<body>
+<div class="hero">
+    <h1>🏖️ <em>休闲</em>出行规划</h1>
+    <p>面向旅游爱好者的AI出行规划，景点打卡路线优化 + 美食深度推荐 + 拍照点推荐</p>
+    <div class="badges"><span class="badge badge-mit">📄 MIT</span><span class="badge badge-v">🏷️ v1.0</span></div>
+</div>
+<div class="container">
+<div class="actions">
+    <a href="https://github.com/chaoliuzhu65-tech/leisure-travel-planner" target="_blank" class="action-card"><div class="ic">📦</div><h3>GitHub 仓库</h3><p>源码、Issue、贡献</p><span class="arr">前往仓库 →</span></a>
+    <a href="SKILL.md" class="action-card"><div class="ic">📖</div><h3>Skill 文档</h3><p>完整技能说明和SOP流程</p><span class="arr">查看文档 →</span></a>
+    <a href="https://github.com/chaoliuzhu65-tech/universal-travel-planner" target="_blank" class="action-card"><div class="ic">💼</div><h3>商旅出行版</h3><p>通用商旅出差规划Skill</p><span class="arr">查看商旅版 →</span></a>
+</div>
+<h2 class="section-title">✨ 核心能力（10大模块）</h2>
+<div class="features">
+    <div class="feat"><span class="ic">🏞️</span><h4>景点推荐评分</h4><p>高德POI+小红书攻略</p></div>
+    <div class="feat"><span class="ic">📍</span><h4>打卡路线优化</h4><p>地理位置就近排序</p></div>
+    <div class="feat"><span class="ic">📸</span><h4>拍照点推荐</h4><p>网红地+最佳时间/角度</p></div>
+    <div class="feat"><span class="ic">🍜</span><h4>美食深度推荐</h4><p>当地特色+必吃榜</p></div>
+    <div class="feat"><span class="ic">🏨</span><h4>全平台住宿比价</h4><p>酒店/民宿/青旅</p></div>
+    <div class="feat"><span class="ic">🚄</span><h4>实时交通查询</h4><p>12306+高德+航班</p></div>
+    <div class="feat"><span class="ic">💰</span><h4>三档预算计算</h4><p>穷游/舒适/奢华</p></div>
+    <div class="feat"><span class="ic">🌤️</span><h4>天气穿搭建议</h4><p>目的地天气+穿衣</p></div>
+    <div class="feat"><span class="ic">📱</span><h4>HTML报告生成</h4><p>精美响应式页面</p></div>
+    <div class="feat"><span class="ic">🧳</span><h4>旅行清单</h4><p>行李/证件/药品</p></div>
+</div>
+<div class="compare">
+    <h3>🆚 商旅 vs 休闲出行对比</h3>
+    <table>
+        <tr><th>维度</th><th>💼 商旅出行</th><th>🏖️ 休闲出行</th></tr>
+        <tr><td>核心目标</td><td>高效到达</td><td><span class="tag-pk">体验最大化</span></td></tr>
+        <tr><td>路线优化</td><td>最近/最省时</td><td><span class="tag-pk">最优游览顺序</span></td></tr>
+        <tr><td>餐饮推荐</td><td>商务宴请</td><td><span class="tag-pk">当地特色深度</span></td></tr>
+        <tr><td>独特功能</td><td>差旅合规</td><td><span class="tag-pk">拍照打卡点</span></td></tr>
+        <tr><td>独特功能</td><td>协议价</td><td><span class="tag-pk">网红/小众秘境</span></td></tr>
+    </table>
+</div>
+</div>
+<footer class="footer">
+    <p>Leisure Travel Planner v1.0 · MIT License · <a href="https://github.com/chaoliuzhu65-tech">chaoliuzhu65-tech</a></p>
+</footer>
+</body>
+</html>

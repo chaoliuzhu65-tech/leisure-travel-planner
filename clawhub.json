@@ -1,0 +1,16 @@
+{
+  "name": "leisure-travel-planner",
+  "displayName": "休闲出行规划",
+  "version": "1.0.0",
+  "description": "面向旅游爱好者的AI休闲出行规划，景点打卡路线优化+美食推荐+拍照点+攻略生成+HTML报告",
+  "repository": "https://github.com/chaoliuzhu65-tech/leisure-travel-planner",
+  "homepage": "https://chaoliuzhu65-tech.github.io/leisure-travel-planner/",
+  "license": "MIT",
+  "triggers": ["旅游","出去玩","度假","休闲出行","景点推荐","美食推荐","拍照打卡","旅行攻略","自由行","穷游"],
+  "dependencies": {
+    "12306-mcp": "npx -y 12306-mcp",
+    "amap-mcp": "https://mcp.amap.com/sse?key={AMAP_WEB_KEY}",
+    "xhs-mcp": "npx -y xhs-mcp (recommended)"
+  },
+  "tags": ["travel","tourism","vacation","leisure","sightseeing","food","photo","planner","amap","12306"]
+}
